@@ -32,8 +32,8 @@ class UIModernBarButtonItem: UIBarButtonItem {
         self.image = image
 
 #if os(iOS)
-        if #available(iOS 26, *) {
-            style = .prominent
+        if #available(iOS 26, *), false {
+//            style = .prominent
         } else {
             let image = UIImage(systemName: "circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))?.withTintColor(PreferencesStorage.shared.tintColor.withAlphaComponent(0.25), renderingMode: .alwaysOriginal)
             setBackgroundImage(image, for: .normal, barMetrics: .default)
@@ -45,10 +45,10 @@ class UIModernBarButtonItem: UIBarButtonItem {
         super.init(coder: coder)
 
 #if os(iOS)
-        if #unavailable(iOS 26) {
+//        if #unavailable(iOS 26) {
             let image = UIImage(systemName: "circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))?.withTintColor(.tertiarySystemFill, renderingMode: .alwaysOriginal)
             setBackgroundImage(image, for: .normal, barMetrics: .default)
-        }
+//        }
 #endif
     }
 }

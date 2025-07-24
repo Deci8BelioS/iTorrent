@@ -64,8 +64,8 @@ private extension RssDetailsViewController {
     func setupDownloadButton() {
         separatorHeight.constant = 1 / traitCollection.displayScale
 
-        if #available(iOS 26, visionOS 26, *) {
-            downloadButton.configuration = .prominentGlass()
+        if #available(iOS 26, visionOS 26, *), false {
+//            downloadButton.configuration = .prominentGlass()
         }
 
         downloadButton.configuration?.titleTextAttributesTransformer = .init { attributes in

@@ -34,7 +34,7 @@ class PatreonPreferencesViewController<VM: PatreonPreferencesViewModel>: BaseVie
 #if os(visionOS)
             $0.layer.cornerRadius = 16
 #else
-            if #available(iOS 26, *) {
+            if #available(iOS 26, *), false {
                 $0.layer.cornerRadius = 26
             } else {
                 $0.layer.cornerRadius = 10
@@ -50,7 +50,7 @@ class PatreonPreferencesViewController<VM: PatreonPreferencesViewModel>: BaseVie
         patronMessage.text = %"patreon.patron.level"
 
         if #available(iOS 26, visionOS 26, *) {
-            becomePatronButton.configuration = .prominentGlass()
+//            becomePatronButton.configuration = .prominentGlass()
         }
         becomePatronButton.configuration?.attributedTitle = .init(%"patreon.action.patron", attributes: .init([.font: UIFont.preferredFont(forTextStyle: .headline)]))
 //        becomePatronButton.configuration?.title = %"patreon.action.patron"
@@ -71,7 +71,7 @@ private extension PatreonPreferencesViewController {
             viewModel.linkButtonTitle.uiSink { [unowned self] title in
 //                linkPatreonButton.setTitle(title, for: .normal)
                 if #available(iOS 26, visionOS 26, *) {
-                    linkPatreonButton.configuration = .glass()
+//                    linkPatreonButton.configuration = .glass()
                 }
                 linkPatreonButton.configuration?.attributedTitle = .init(title, attributes: .init([.font: UIFont.preferredFont(forTextStyle: .headline)]))
 //                linkPatreonButton.configuration?.title = title

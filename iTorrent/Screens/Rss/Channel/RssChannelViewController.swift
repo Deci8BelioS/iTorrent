@@ -12,7 +12,7 @@ class RssChannelViewController<VM: RssChannelViewModel>: BaseCollectionViewContr
     private let actionsButton: UIBarButtonItem
 
     required init(viewModel: VM) {
-        if #available(iOS 26, *) {
+        if #available(iOS 26, *), false {
             actionsButton = UIBarButtonItem(title: "Actions", image: .init(systemName: "ellipsis"))
         } else {
             actionsButton = UIBarButtonItem(title: "Actions", image: .init(systemName: "ellipsis.circle"))
